@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [searchtxt, funsearch] = useState(""); //Text on search bar
   const [movielist, showmovies] = useState([]); //Movie list to be diplayed
   const [nomovielist, noshowmovies] = useState(false); //if no movie
+  const navigate = useNavigate();
+
+  const detailBtn = (movie) => {
+    navigate(`/movie/detail/${movie.imdbID}`);
+  };
 
   useEffect(() => {
     let term = localStorage.getItem("searchItem");
@@ -38,24 +43,14 @@ export const Home = () => {
 
   const movieitems = movielist.map((movie) => {
     return (
-      <div key={`${movie.imdbID}`} className="moviesCard">
-        <div>
-          <img
-            alt="poster"
-            width="100%"
-            height="225"
-            className="ImgCard"
-            src={movie.Poster}
-          ></img>
-          <div>
-            <p className="movieTitle">{movie.Title}</p>
-            <h6 className="movieYear">Year Released: {movie.Year}</h6>
-            <NavLink to={`/movie/detail/${movie.imdbID}`}>
-              <button type="button" className="detailBtn">
-                More Details
-              </button>
-            </NavLink>
-          </div>
+      <div
+        key={`${movie.imdbID}`}
+        className="moviesCard"
+        onClick={() => detailBtn(movie)}
+      >
+        <div className="ImageDiv">
+          <p className="movieTitle">{movie.Title}</p>
+          <img alt="poster" className="ImgCard" src={movie.Poster}></img>
         </div>
       </div>
     );
