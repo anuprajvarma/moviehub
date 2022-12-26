@@ -21,6 +21,7 @@ export const Home = () => {
   const setsearch = (e) => {
     funsearch(e.target.value); // set string search
   };
+
   const fetchmovies = (searcht) => {
     const searchurl = `https://www.omdbapi.com/?s=${searcht}&page=2&apikey=e98286fa`;
 
