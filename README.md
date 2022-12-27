@@ -22,9 +22,12 @@
 
 - Clone the repository to your local system.`https://github.com/anuprajvarma/moviehub.git`
 - Go to [OMDB API](https://www.omdbapi.com/) find API KEY and use our Application
-- Use this API KEY  
-  `https://www.omdbapi.com/?s=${searcht}&page=2&apikey=API KEY HERE`  
-  `https://www.omdbapi.com/?i=${id}&apikey=API KEY HERE`
+- Use this API KEY
+  ```
+     https://www.omdbapi.com/?s=${searcht}&page=2&apikey=API KEY HERE
+
+     https://www.omdbapi.com/?i=${id}&apikey=API KEY HERE
+  ```
 - In the root folder and enter the following command in the CLI
 
 ```
